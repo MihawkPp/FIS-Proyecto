@@ -1,0 +1,227 @@
+Especificación de Requerimientos de Software (SRS)
+1. Requerimientos Funcionales (RF) - 60 ítems
+Lo que hace el sistema.
+
+
+A. Gestión de Usuarios y Perfiles
+El sistema permitirá el registro de estudiantes mediante correo institucional (.edu).
+
+El sistema permitirá el registro de arrendadores (propietarios).
+
+El sistema debe verificar la identidad de los arrendadores mediante carga de documentos oficiales.
+
+Los estudiantes podrán crear perfiles detallando su universidad, carrera y semestre.
+
+Los usuarios podrán iniciar sesión mediante OAuth (Google, Facebook, Apple).
+
+El sistema permitirá la recuperación de contraseñas vía email.
+
+Los estudiantes podrán subir una foto de perfil y una breve descripción sobre su estilo de vida.
+
+Los arrendadores podrán gestionar múltiples propiedades desde un solo perfil.
+
+El sistema permitirá la edición de preferencias de búsqueda (precio, distancia, servicios).
+
+El sistema debe permitir la baja de cuentas y eliminación de datos personales.
+
+
+B. Búsqueda y Geolocalización
+El sistema debe permitir buscar viviendas filtrando por el nombre de la Universidad.
+
+El sistema debe mostrar un mapa interactivo con la ubicación de las viviendas.
+
+El sistema permitirá filtrar por radio de distancia (ej. a 500m, 1km, 5km de la facultad).
+
+El sistema permitirá filtrar por precio mínimo y máximo.
+
+Filtro por tipo de alojamiento: habitación individual, compartida o departamento completo.
+
+Filtro por servicios incluidos: Wi-Fi, servicios básicos, lavandería, limpieza.
+
+Filtro por reglas de la casa: "se permiten mascotas", "solo mujeres/hombres", "no fumar".
+
+El sistema debe ordenar resultados por relevancia, precio o cercanía.
+
+Los usuarios podrán guardar propiedades en una lista de "Favoritos".
+
+El sistema sugerirá viviendas basadas en búsquedas anteriores.
+
+
+C. Gestión de Reservas y Pagos
+El sistema permitirá seleccionar fechas basadas en el calendario académico (semestres).
+
+El sistema debe mostrar la disponibilidad en tiempo real.
+
+Los estudiantes podrán enviar solicitudes de reserva a los arrendadores.
+
+Los arrendadores podrán aceptar o rechazar solicitudes en un plazo de 24 horas.
+
+El sistema integrará una pasarela de pagos (Stripe/PayPal) para el depósito de reserva.
+
+El sistema debe emitir comprobantes de pago digitales.
+
+El sistema permitirá el pago de rentas mensuales a través de la plataforma.
+
+El sistema retendrá el pago hasta que el estudiante confirme el check-in.
+
+El sistema permitirá gestionar reembolsos según la política de cancelación.
+
+El sistema enviará recordatorios de pago de renta 3 días antes del vencimiento.
+
+
+D. Comunicación y Reseñas
+El sistema contará con un chat interno entre estudiante y arrendador.
+
+El chat no permitirá compartir números telefónicos hasta que se confirme la reserva (protección de datos).
+
+Los estudiantes podrán calificar la vivienda y al arrendador tras su estancia.
+
+Los arrendadores podrán calificar al estudiante (comportamiento, limpieza).
+
+El sistema permitirá adjuntar fotos en las reseñas.
+
+Los usuarios podrán reportar perfiles o anuncios sospechosos.
+
+El sistema enviará notificaciones push sobre nuevos mensajes.
+
+El sistema enviará notificaciones por correo sobre el estado de la reserva.
+
+Los estudiantes podrán hacer preguntas públicas en el anuncio de la vivienda.
+
+El sistema permitirá traducir descripciones de viviendas para estudiantes extranjeros.
+
+
+E. Administración y Seguridad (Resto de RF)
+Dashboard de administración para moderar anuncios.
+
+Sistema de validación de fotos (comparación mediante IA).
+
+Generación de contratos digitales básicos.
+
+Módulo de resolución de disputas.
+
+Panel de métricas para arrendadores (vistas, clics, conversiones).
+
+Integración con APIs de transporte público para mostrar rutas a la universidad.
+
+Opción de "Búsqueda de Roomie" dentro de una misma propiedad.
+
+Verificación de estatus de estudiante activo mediante API universitaria (si aplica).
+
+Exportación de historial de pagos en PDF.
+
+Sistema de niveles para arrendadores (Super-Host estudiantil).
+
+Bloqueo de fechas automático tras reserva confirmada.
+
+Soporte para múltiples divisas.
+
+Listado de servicios cercanos (supermercados, farmacias, bibliotecas).
+
+Etiquetas especiales para viviendas con "Zona de estudio".
+
+Opción de visita virtual (video 360 o videollamada agendada).
+
+Alerta de "Precio bajo" en zonas seleccionadas.
+
+Registro de logs de actividad para auditoría.
+
+Configuración de impuestos según el país/ciudad.
+
+Sincronización con calendarios externos (Google Calendar).
+
+Módulo de encuestas de satisfacción.
+
+
+2. Requerimientos No Funcionales (RNF) - 40 ítems
+Estos definen los atributos de calidad y restricciones del sistema.
+
+
+A. Usabilidad y Rendimiento
+El tiempo de carga de la página principal no debe exceder los 2 segundos.
+
+La interfaz debe ser Responsive (adaptable a móviles, tablets y desktop).
+
+El sistema debe soportar al menos 10,000 usuarios concurrentes sin degradar el rendimiento.
+
+El diseño debe seguir las pautas de accesibilidad WCAG 2.1 (contraste, lectura de pantalla).
+
+La aplicación móvil (si existe) no debe ocupar más de 150MB de espacio inicial.
+
+Las búsquedas en el mapa deben actualizarse en menos de 500ms al mover el cursor.
+
+El sistema debe estar disponible el 99.9% del tiempo (High Availability).
+
+Los colores y tipografía deben estar alineados a una identidad visual juvenil y confiable.
+
+La navegación no debe requerir más de 3 clics para llegar al proceso de reserva.
+
+El sistema debe ofrecer soporte multi-idioma (Español, Inglés, Portugués inicial).
+
+
+B. Seguridad y Privacidad
+Todos los datos deben transmitirse mediante protocolo HTTPS (TLS 1.3).
+
+Las contraseñas deben estar encriptadas mediante algoritmos de hash fuertes (BCrypt).
+
+El sistema debe cumplir con el GDPR (Reglamento General de Protección de Datos).
+
+Los datos de tarjetas de crédito no se almacenarán en los servidores propios (Cumplimiento PCI-DSS).
+
+Implementación de autenticación de dos factores (2FA) para arrendadores.
+
+El sistema debe realizar backups automáticos cada 24 horas.
+
+Los documentos de identidad subidos deben borrarse tras la validación o almacenarse en un bucket privado encriptado.
+
+El sistema debe detectar y bloquear ataques de fuerza bruta (bloqueo tras 5 intentos fallidos).
+
+Tiempo de expiración de sesión por inactividad de 30 minutos.
+
+Sanitización de todos los inputs para prevenir ataques de SQL Injection y XSS.
+
+
+C. Mantenibilidad y Escalabilidad
+El código debe estar documentado siguiendo el estándar JSDoc o similar.
+
+El sistema debe utilizar una arquitectura de microservicios para escalar módulos de forma independiente.
+
+El despliegue debe realizarse mediante contenedores (Docker/Kubernetes).
+
+Se debe contar con un entorno de Staging idéntico al de Producción para pruebas.
+
+El sistema debe permitir la actualización de componentes sin caída del servicio (Blue-Green Deployment).
+
+El tiempo medio de recuperación ante fallos (MTTR) debe ser menor a 1 hora.
+
+Uso de una base de datos relacional para transacciones y NoSQL para el chat/logs.
+
+API documentada bajo el estándar OpenAPI (Swagger).
+
+El sistema debe ser capaz de integrarse con sistemas CRM de terceros.
+
+Implementación de CI/CD para automatizar pruebas unitarias y despliegues.
+
+
+D. Legales y Negocio (Resto de RNF)
+El sistema debe cumplir con las leyes de arrendamiento locales de cada país de operación.
+
+Los términos y condiciones deben ser aceptados explícitamente al registrarse.
+
+El sistema debe permitir auditorías externas de seguridad anuales.
+
+La arquitectura debe permitir añadir nuevos métodos de pago locales en menos de 2 semanas de desarrollo.
+
+El costo de mantenimiento de infraestructura no debe exceder el 15% de los ingresos mensuales.
+
+Soporte técnico con tiempo de respuesta menor a 12 horas para incidencias críticas.
+
+El sistema debe funcionar correctamente en las últimas 3 versiones de los navegadores Chrome, Safari y Firefox.
+
+Capacidad de exportar reportes fiscales para los arrendadores a final de año.
+
+Escalabilidad vertical y horizontal automática en la nube (AWS/Azure/GCP).
+
+El sistema debe permitir la configuración de comisiones variables por ciudad o tipo de propiedad.
+
+¿Te gustaría que profundice en el diseño de la base de datos para estos requerimientos o prefieres que elaboremos un User Journey Map para el estudiante?
